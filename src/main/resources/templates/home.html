@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Employee Management System</title>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f7f7f7;
+      }
+
+      h1 {
+        font-weight: 600;
+        color: #333;
+		margin-top: 1rem;
+      }
+
+      .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary {
+        background-color: #4e73df;
+        border-color: #4e73df;
+      }
+
+      .btn-primary:hover {
+        background-color: #2e59d9;
+        border-color: #2653c1;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+      }
+
+      .form-control, .form-select {
+        border-radius: 8px;
+      }
+
+      .table {
+        font-size: 14px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .table-dark {
+        background-color: #343a40;
+        color: white;
+      }
+
+      th, td {
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .form-label {
+        font-weight: 500;
+      }
+
+      .row.mb-4 {
+        margin-bottom: 30px;
+      }
+      
+      .d-flex .btn {
+        min-width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center mb-4">EMPLOYEE MANAGEMENT SYSTEM</h1>
+    <div class="container">
+
+      <div class="d-flex mb-3">
+        <a href="/add-employee" class="btn btn-primary">Add Employee</a>
+      </div>
+
+      <div class="row mb-4">
+        <div class="col-md-9">
+          <form action="/employees/filter-by-department" method="get" class="d-flex">
+            <input type="text" name="department" class="form-control" placeholder="Department" required style="max-width: 250px;">
+            <button type="submit" class="btn btn-secondary ms-2">Filter by Department</button>
+          </form>
+        </div>
+
+        <div class="col-md-3">
+          <form action="/employees/sort-by-salary" method="get" class="d-flex">
+            <div class="d-flex flex-row align-items-center w-100">
+              <label for="salarySort" class="form-label mb-0 me-2">Salary:</label>
+              <select name="sortOrder" id="salarySort" class="form-select" required style="max-width: 150px;">
+                <option value="asc">Asc</option>
+                <option value="desc">Des</option>
+              </select>
+              <button type="submit" class="btn btn-secondary ms-2">Sort</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <table class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th colspan="2" class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="employee : ${employeeObject}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.position}"></td>
+            <td th:text="${employee.department}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td>
+              <a th:href="@{'/update/'+${employee.id}}" class="btn btn-warning m-3">Update</a>
+            </td>
+            <td>
+              <a th:href="@{'/delete/'+${employee.id}}" class="btn btn-danger m-3">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
