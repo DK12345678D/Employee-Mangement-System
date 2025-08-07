@@ -1,9 +1,10 @@
-package com.harshal.mvc.repository;
+package com.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.harshal.mvc.models.Employee;
+import com.app.models.Employee;
+
 import java.util.List;
 
 @Repository

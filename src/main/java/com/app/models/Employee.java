@@ -1,4 +1,4 @@
-package com.harshal.mvc.models;
+package com.app.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

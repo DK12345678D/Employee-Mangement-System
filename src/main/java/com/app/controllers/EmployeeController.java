@@ -1,4 +1,4 @@
-package com.harshal.mvc.controllers;
+package com.app.controllers;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.harshal.mvc.models.Employee;
-import com.harshal.mvc.repository.EmployeeRepository;
+import com.app.models.Employee;
+import com.app.repository.EmployeeRepository;
 
 @Controller
 public class EmployeeController {

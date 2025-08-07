@@ -1,4 +1,4 @@
-package com.harshal.mvc;
+package com.app.mvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
