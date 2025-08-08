@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.app.models.Employee;
 import com.app.repository.EmployeeRepository;
@@ -41,10 +42,14 @@ public class EmployeeController {
   }
 
   @GetMapping("/delete/{id}")
-  public String deleteEmployee(@PathVariable int id) {
-    Employee employee = employeeRepository.findById(id).orElseThrow();
-    employeeRepository.delete(employee);
-    return "redirect:/";
+  public String deleteEmployee(@PathVariable int id, RedirectAttributes redirectAttributes) {
+      Employee employee = employeeRepository.findById(id)
+              .orElseThrow(() -> new IllegalArgumentException("Invalid employee ID: " + id));
+      
+      employeeRepository.delete(employee);
+      
+      redirectAttributes.addFlashAttribute("message", "Employee deleted successfully!");
+      return "redirect:/";
   }
 
   @GetMapping("/update/{id}")

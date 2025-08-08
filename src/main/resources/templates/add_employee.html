@@ -6,56 +6,61 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <title>EMS | Add Employee</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-I7E8VVD/KaFJ9Q2cJZ3vCUpc4kRrwLJ/jk5dR5OnHq7QDx6RXCkXUhp3l6j8m+5L"
+          crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #f7f7f7;
-      }
+        :root {
+            --primary-color: #4e73df;
+            --primary-hover: #2e59d9;
+            --background-color: #f7f7f7;
+        }
 
-      h2 {
-        font-weight: 600;
-        color: #333;
-      }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+        }
 
-      .container {
-        background-color: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        max-width: 600px;
-        margin-top: 20px;
-      }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            max-width: 650px;
+            margin-top: 30px;
+        }
 
-      .btn-primary {
-        background-color: #4e73df;
-        border-color: #4e73df;
-      }
+        h2 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+        }
 
-      .btn-primary:hover {
-        background-color: #2e59d9;
-        border-color: #2653c1;
-      }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: 0.3s;
+        }
 
-      .form-control {
-        border-radius: 8px;
-      }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
 
-      .form-label {
-        font-weight: 500;
-      }
+        .form-control {
+            border-radius: 8px;
+        }
 
-      .form-control:focus {
-        box-shadow: 0 0 5px rgba(78, 115, 223, 0.5);
-        border-color: #4e73df;
-      }
-
-      .mb-3 {
-        margin-bottom: 1.5rem;
-      }
-
-      .btn {
-        min-width: 180px;
-      }
+        .form-control:focus {
+            box-shadow: 0 0 6px rgba(78, 115, 223, 0.5);
+            border-color: var(--primary-color);
+        }
     </style>
   </head>
   <body>
@@ -63,34 +68,41 @@
       <h2 class="text-center">Add New Employee</h2>
       <form action="/add-employee" method="post" th:object="${employeeObject}">
         <div class="mb-3">
-          <label for="employeename" class="form-label">Name:</label>
-          <input type="text" class="form-control" id="employeename" th:field="*{name}" required>
-        </div>
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" class="form-control" th:field="*{name}" required>
+        <div class="invalid-feedback">Please enter a valid name (min 2 characters).</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="employeeage" class="form-label">Age:</label>
-          <input type="number" class="form-control" id="employeeage" th:field="*{age}" required>
-        </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input type="number" id="age" class="form-control" th:field="*{age}" min="18" max="65" required>
+        <div class="invalid-feedback">Age must be between 18 and 65.</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="employeePosition" class="form-label">Position:</label>
-          <input type="text" class="form-control" id="employeePosition" th:field="*{position}" required>
-        </div>
+      <div class="mb-3">
+        <label for="position" class="form-label">Position:</label>
+        <input type="text" id="position" class="form-control" th:field="*{position}" required>
+        <div class="invalid-feedback">Position cannot be empty.</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="employeeDepartment" class="form-label">Department:</label>
-          <input type="text" class="form-control" id="employeeDepartment" th:field="*{department}" required>
-        </div>
+      <div class="mb-3">
+        <label for="department" class="form-label">Department:</label>
+        <input type="text" id="department" class="form-control" th:field="*{department}" required>
+        <div class="invalid-feedback">Department cannot be empty.</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="employeeEmail" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="employeeEmail" th:field="*{email}" required>
-        </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" class="form-control" th:field="*{email}" required>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+      </div>
 
-        <div class="mb-3">
-          <label for="employeeSalary" class="form-label">Salary:</label>
-          <input type="number" step="0.01" class="form-control" id="employeeSalary" th:field="*{salary}" required>
-        </div>
+      <div class="mb-3">
+        <label for="salary" class="form-label">Salary:</label>
+        <input type="number" id="salary" class="form-control" th:field="*{salary}" min="1000" required>
+        <div class="invalid-feedback">Salary must be at least 1000.</div>
+      </div>
+
 
         <button type="submit" class="btn btn-primary">Add Employee</button>
       </form>
