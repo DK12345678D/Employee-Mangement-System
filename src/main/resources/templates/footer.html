@@ -1,0 +1,101 @@
+<!-- fragments/footer.html -->
+ <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f7f7;
+    }
+    /* Header */
+    .navbar {
+      background: linear-gradient(90deg, #0062E6, #33AEFF);
+    }
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: white !important;
+    }
+    .navbar-nav .nav-link {
+      color: white !important;
+      margin-right: 1rem;
+      font-weight: 500;
+    }
+    /* Main container */
+    .container {
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    /* Table */
+    .table {
+      font-size: 14px;
+    }
+    .table-dark {
+      background-color: #343a40;
+      color: white;
+    }
+    th, td {
+      text-align: center;
+      vertical-align: middle;
+    }
+    /* Buttons */
+    .btn {
+      border-radius: 8px;
+    }
+    .btn-primary {
+      background-color: #0062E6;
+      border-color: #0062E6;
+    }
+    .btn-primary:hover {
+      background-color: #004bb5;
+      border-color: #004bb5;
+    }
+    /* Navbar */
+        .navbar { background: linear-gradient(90deg, #0062E6, #33AEFF); }
+        .navbar-brand { font-weight: 600; font-size: 1.4rem; color: white !important; }
+        .navbar-nav .nav-link { color: white !important; font-weight: 500; }
+        /* Container */
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        th, td { text-align: center; vertical-align: middle; }
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #0062E6, #33AEFF);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 5px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 50%;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            background-color: white;
+            color: #0062E6;
+        }
+    </style>
+<footer th:fragment="siteFooter">
+    <div class="social-icons mb-2">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+    <div>
+        © 2025 Student Management System — All Rights Reserved
+    </div>
+</footer>

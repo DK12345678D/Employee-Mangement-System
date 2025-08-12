@@ -64,6 +64,58 @@
     </style>
   </head>
   <body>
+  
+
+<!-- navbar.jsp -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <h5 class="pt-1">MDB</h5>
+        </a>
+        <button class="navbar-toggler" type="button" 
+                data-mdb-toggle="collapse" 
+                data-mdb-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+            </ul>
+            <div class="d-flex align-items-center justify-content-start">
+                <a class="text-reset me-3" href="#"><i class="fas fa-shopping-cart text-white"></i></a>
+                <div class="dropdown">
+                    <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" 
+                       id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell text-white"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Some news</a></li>
+                        <li><a class="dropdown-item" href="#">Another news</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" 
+                       id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" 
+                             class="rounded-circle" height="25" alt="User Avatar" loading="lazy" />
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                        <li><a class="dropdown-item" href="#">My profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+  
     <div class="container">
       <h2 class="text-center">Add New Employee</h2>
       <form action="/add-employee" method="post" th:object="${employeeObject}">
@@ -107,5 +159,23 @@
         <button type="submit" class="btn btn-primary">Add Employee</button>
       </form>
     </div>
+    
+    <!-- footer.jsp -->
+<footer class="bg-primary text-center text-white">
+    <div class="container p-4 pb-0">
+        <section class="mb-4">
+            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-facebook-f text-white"></i></a>
+            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-twitter text-white"></i></a>
+            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-google text-white"></i></a>
+            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-instagram text-white"></i></a>
+            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
+            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-github text-white"></i></a>
+        </section>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="#">YourWebsite.com</a>
+    </div>
+</footer>
   </body>
 </html>
