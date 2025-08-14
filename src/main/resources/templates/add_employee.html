@@ -1,123 +1,15 @@
 <!doctype html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <title>EMS | Add Employee</title>
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-I7E8VVD/KaFJ9Q2cJZ3vCUpc4kRrwLJ/jk5dR5OnHq7QDx6RXCkXUhp3l6j8m+5L"
-          crossorigin="anonymous">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-color: #4e73df;
-            --primary-hover: #2e59d9;
-            --background-color: #f7f7f7;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-        }
-
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            max-width: 650px;
-            margin-top: 30px;
-        }
-
-        h2 {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 25px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            transition: 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            border-color: var(--primary-hover);
-        }
-
-        .form-control {
-            border-radius: 8px;
-        }
-
-        .form-control:focus {
-            box-shadow: 0 0 6px rgba(78, 115, 223, 0.5);
-            border-color: var(--primary-color);
-        }
-    </style>
+  <head th:replace="header :: head">
+      <title>Add Employee</title>
+     
   </head>
   <body>
   
-
-<!-- navbar.jsp -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-            <h5 class="pt-1">MDB</h5>
-        </a>
-        <button class="navbar-toggler" type="button" 
-                data-mdb-toggle="collapse" 
-                data-mdb-target="#navbarSupportedContent" 
-                aria-controls="navbarSupportedContent" 
-                aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
-            </ul>
-            <div class="d-flex align-items-center justify-content-start">
-                <a class="text-reset me-3" href="#"><i class="fas fa-shopping-cart text-white"></i></a>
-                <div class="dropdown">
-                    <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" 
-                       id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-bell text-white"></i>
-                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Some news</a></li>
-                        <li><a class="dropdown-item" href="#">Another news</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" 
-                       id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" 
-                             class="rounded-circle" height="25" alt="User Avatar" loading="lazy" />
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                        <li><a class="dropdown-item" href="#">My profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-  
-    <div class="container">
-      <h2 class="text-center">Add New Employee</h2>
+<div th:replace="header :: header"></div>
+ 
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+      <h2 class="text-center" >Add New Employee</h2>
       <form action="/add-employee" method="post" th:object="${employeeObject}">
         <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
@@ -156,26 +48,11 @@
       </div>
 
 
-        <button type="submit" class="btn btn-primary">Add Employee</button>
+        <button type="submit" class="btn btn-success">Add Employee</button>
       </form>
     </div>
-    
-    <!-- footer.jsp -->
-<footer class="bg-primary text-center text-white">
-    <div class="container p-4 pb-0">
-        <section class="mb-4">
-            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-facebook-f text-white"></i></a>
-            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-twitter text-white"></i></a>
-            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-google text-white"></i></a>
-            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-instagram text-white"></i></a>
-            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
-            <a class="btn btn-outline-primary btn-floating m-1 border border-white" href="#"><i class="fab fa-github text-white"></i></a>
-        </section>
-    </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2020 Copyright:
-        <a class="text-white" href="#">YourWebsite.com</a>
-    </div>
-</footer>
+    <!-- FOOTER -->
+<div th:replace="header :: Footer"></div>
+
   </body>
 </html>

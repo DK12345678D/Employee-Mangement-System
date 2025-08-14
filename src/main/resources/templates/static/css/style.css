@@ -1,0 +1,31 @@
+body {
+	/* background-color: rgb(128, 64, 64);
+	background-image:  url("../static/images/bak.jpg");
+	color: rgb(255, 255, 255); */
+}
+
+#main-content {
+	min-height: 500px;
+	margin-top: 50px;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.table th, td {
+	text-align: center;
+}
+
+.field-error {
+	border-color: #FF0000;
+	margin-bottom: 10px;
+}
+
+.fa-bigger {
+	font-size: 1.5em;
+}
+
+.form-control {
+	color:black;
+}
