@@ -10,11 +10,11 @@
 
 	<!-- MAIN CONTENT -->
 	<div class="container">
-		<h2>Employee Management System</h2>
+		<h2><i class="fa-solid fa-users"></i> Employee Management System</h2>
 
 		<!-- Add Employee Button -->
 		<div class="mb-3">
-			<a href="/add-employee" class="btn btn-success">➕ Add Employee</a>
+			<a href="/add-employee" class="btn btn-success "><i class="fa-solid fa-user-plus"></i> Add Employee</a>
 		</div>
 
 		<!-- Filters -->
@@ -24,7 +24,7 @@
 					class="d-flex">
 					<input type="text" name="department" class="form-control"
 						placeholder="Department" required style="max-width: 250px;">
-					<button type="submit" class="btn btn-secondary ms-2">Filter</button>
+					<button type="submit" class="btn btn-secondary  ms-2"><i class="fa-solid fa-filter"></i> Filter</button>
 				</form>
 			</div>
 			<div class="col-md-3">
@@ -35,7 +35,9 @@
 						<option value="asc">Asc</option>
 						<option value="desc">Desc</option>
 					</select>
-					<button type="submit" class="btn btn-secondary ms-2">Sort</button>
+					<button type="submit" class="btn btn-secondary ms-2"style="display: flex; ">
+  <i class="fa-solid fa-sort" style="margin-right:1rem;margin-top:5px;"></i> Sort
+</button>
 				</form>
 			</div>
 		</div>
@@ -65,10 +67,12 @@
 					<td th:text="${employee.salary}"></td>
 					<td><a th:href="@{'/update/'+${employee.id}}"
 						class="btn btn-warning btn-sm"
-						onclick="return confirmAction('update')">Update</a></td>
+						onclick="return confirmAction('update')"><i class="fa fa-pencil-alt" style=
+						"margin:5px;"></i>Update</a></td>
 					<td><a th:href="@{'/delete/'+${employee.id}}"
 						class="btn btn-danger btn-sm"
-						onclick="return confirmAction('delete')">Delete</a></td>
+						onclick="return confirmAction('delete')"><i class="fa fa-trash-alt" style=
+						"margin:5px;"></i>Delete</a></td>
 				</tr>
 			</tbody>
 		</table>
