@@ -5,7 +5,7 @@ It provides a simple and intuitive interface to manage employee records with com
 
 ---
 
-## ✨ Features
+## ✨ Features 
 - ➕ Add new employees  
 - 📋 View all employees  
 - ✏️ Update employee details  
