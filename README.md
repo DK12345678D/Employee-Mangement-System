@@ -1,5 +1,5 @@
 # 👨‍💼 Employee Management System                                
-                       
+                         
 A **full-stack web application** built with **Java, Spring Boot, Spring MVC, Hibernate, MySQL, and Thymeleaf**.  
 It provides a simple and intuitive interface to manage employee records with complete **CRUD (Create, Read, Update, Delete)** functionality.
 
